@@ -14,8 +14,7 @@ try {
     header('Content-Type: image/jpeg');
     echo $res->getJpeg();
 } catch (EntityNotFoundException) {
-   
-}
-catch(ParameterException) {
+    http_response_code(404);
+} catch(ParameterException) {
     http_response_code(400);
 }
