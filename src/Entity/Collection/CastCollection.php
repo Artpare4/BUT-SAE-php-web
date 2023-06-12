@@ -6,6 +6,7 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use Entity\Cast;
+use Entity\Exception\EntityNotFoundException;
 use PDO;
 
 class CastCollection
@@ -29,7 +30,7 @@ class CastCollection
         if ($results = $request->fetchAll(PDO::FETCH_CLASS, Cast::class)) {
             return $results;
         } else {
-            throw new Exception();
+            throw new EntityNotFoundException("Film non trouvé");
         }
     }
 
@@ -53,7 +54,7 @@ class CastCollection
         if ($results = $request->fetchAll(PDO::FETCH_CLASS, Cast::class)) {
             return $results;
         } else {
-            throw new Exception();
+            throw new EntityNotFoundException("Acteur non trouvé");
         }
     }
 

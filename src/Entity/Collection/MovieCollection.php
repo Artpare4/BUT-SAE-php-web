@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Entity\Collection;
 
+use Entity\Exception\EntityNotFoundException;
 use PDO;
 use Entity\Movie;
 use Database\MyPdo;
@@ -31,17 +34,22 @@ SQL);
      */
     public function getByType(int $idType): array
     {
-        $res=[];
-        $request=MyPdo::getInstance()->prepare(<<<SQL
+        $res = [];
+        $request = MyPdo::getInstance()->prepare(
+            <<<SQL
         SELECT
         FROM movie m,
              movie_genre mg
         WHERE m.id=mg.movieId
         AND mg.genreId=:idType;
-SQL);
-        $request->execute([':idType'=>$idType]);
-        $res=$request->fetchAll(PDO::FETCH_CLASS, Movie::class);
-        return $res;
+SQL
+        );
+        $request->execute([':idType' => $idType]);
+        if ($res = $request->fetchAll(PDO::FETCH_CLASS, Movie::class)) {
+            return $res;
+        } else {
+            throw new EntityNotFoundException();
+        }
     }
 
     public function getByActor(int $idActor): array
@@ -55,7 +63,10 @@ SQL);
     AND c.peopleId=:idActor;
 SQL);
         $request->execute([':idActor'=>$idActor]);
-        $res=$request->fetchAll(PDO::FETCH_CLASS, Movie::class);
-        return $res;
+        if ($res = $request->fetchAll(PDO::FETCH_CLASS, Movie::class)) {
+            return $res;
+        } else {
+            throw new EntityNotFoundException();
+        }
     }
 }
