@@ -128,6 +128,14 @@ class Actor
         $this->placeOfBirth = $placeOfBirth;
     }
 
+    /**
+     * Méthode de classe de Actor
+     * Renvoie un Actor possédant les attributs de celui recherché dans la base de données
+     * en fonction de son ID.
+     *
+     * @param int $id
+     * @return Actor
+     */
     public static function findById(int $id): Actor
     {
         $request = MyPdo::getInstance()->prepare(
