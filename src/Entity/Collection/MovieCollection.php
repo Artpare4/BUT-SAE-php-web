@@ -29,7 +29,7 @@ SQL);
      * @param string $idType id du genre
      * @return Movie[] liste de film
      */
-    public function getByType(string $idType): array
+    public function getByType(int $idType): array
     {
         $res=[];
         $request=MyPdo::getInstance()->prepare(<<<SQL
