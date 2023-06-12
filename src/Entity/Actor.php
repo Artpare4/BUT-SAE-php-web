@@ -4,12 +4,29 @@ namespace Entity;
 
 class Actor
 {
+    private int $id;
     private int $avatarId;
     private string $birthday;
     private ?string $deathday;
     private string $name;
     private string $biography;
     private string $placeOfBirth;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return int
