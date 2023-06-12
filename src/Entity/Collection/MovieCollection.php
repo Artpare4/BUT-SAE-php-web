@@ -33,7 +33,7 @@ SQL);
     {
         $res=[];
         $request=MyPdo::getInstance()->prepare(<<<SQL
-        SELECT m.id,m.posterId,m.originalLanguage,m.originalTitle,m.overwiew,m.releaseDate,m.runtime,m.tagline,m.title
+        SELECT
         FROM movie m,
              movie_genre mg
         WHERE m.id=mg.movieId
@@ -44,5 +44,18 @@ SQL);
         return $res;
     }
 
-
+    public function getByActor(int $idActor): array
+    {
+        $res=[];
+        $request=MyPdo::getInstance()->prepare(<<<SQL
+    SELECT  m.id,m.posterId,m.releaseDate,m.title
+    FROM movie m,
+         cast c
+    WHERE m.id=c.movieId
+    AND c.peopleId=:idActor;
+SQL);
+        $request->execute([':idActor'=>$idActor]);
+        $res=$request->fetchAll(PDO::FETCH_CLASS, Movie::class);
+        return $res;
+    }
 }
