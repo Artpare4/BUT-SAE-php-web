@@ -10,7 +10,14 @@ use PDO;
 
 class CastCollection
 {
-    public static function findByMovie(int $id): array
+    /**
+     * Méthode de classe de CastCollection
+     * Retourne l'entièreté des Cast en rapport avec l'id du Movie entré en paramètre.
+     *
+     * @param int $id
+     * @return Cast[]
+     */
+    public static function findByMovieId(int $id): array
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
             SELECT id, movieId, peopleId as "actorId", role, orderIndex
@@ -27,7 +34,14 @@ class CastCollection
     }
 
 
-    public static function findByActor(int $id): array
+    /**
+     * Méthode de classe de CastCollection
+     * Retourne l'entièreté des Cast en rapport avec l'id de l'Actor entré en paramètre.
+     *
+     * @param int $id
+     * @return Cast[]
+     */
+    public static function findByActorId(int $id): array
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
             SELECT id, movieId, peopleId as "actorId", role, orderIndex
