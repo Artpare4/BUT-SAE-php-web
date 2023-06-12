@@ -37,6 +37,10 @@ main {
     display: flex;
     margin : 10px;
     flex-direction: column;
+    align-self: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 
 .titleDate {
@@ -57,7 +61,13 @@ main {
 }
 
 .actor {
-    margin: 25px;
+    margin: 50px 50px 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.actorInfo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
