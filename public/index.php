@@ -10,7 +10,7 @@ $pageWeb=new WebPage();
 $pageWeb->setTitle("Films");
 
 $pageWeb->appendContent(<<<HTML
-    <div class='Header'><h1>Films</h1></div>
+    <div class='header'><h1>Films</h1></div>
 HTML);
 
 
@@ -28,7 +28,7 @@ $pageWeb->appendContent("</div>");
 
 
 $pageWeb->appendContent(<<<HTML
-    <div><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
+    <div class="footer"><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
 HTML);
 
 $pageWeb->appendCssUrl("/css/style.css");
