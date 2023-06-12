@@ -182,6 +182,14 @@ class Movie
         return $this;
     }
 
+    /**
+     * Méthode de classe de Movie
+     * Renvoie un Movie possédant les attributs de celui recherché dans la base de données
+     * en fonction de son ID.
+     *
+     * @param int $id
+     * @return Movie
+     */
     public static function findById(int $id): Movie
     {
         $request = MyPdo::getInstance()->prepare(
