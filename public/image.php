@@ -10,9 +10,11 @@ try {
     }
     $image=new Image();
     $res=$image->getById($_GET['imageId']);
+    header('HTTP 1.1 200 OK');
+    header('Content-Type: image/jpeg');
     echo $res->getJpeg();
 } catch (EntityNotFoundException) {
-    echo "http://cutrona/but/s2/sae2-01/ressources/public/img/movie.png";
+   
 }
 catch(ParameterException) {
     http_response_code(400);
