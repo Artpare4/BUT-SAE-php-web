@@ -2,6 +2,10 @@
 declare(strict_types=1);
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+use PDO;
+
 class Actor
 {
     private int $id;
@@ -124,5 +128,22 @@ class Actor
         $this->placeOfBirth = $placeOfBirth;
     }
 
-
+    public static function findById(int $id): Actor
+    {
+        $request = MyPdo::getInstance()->prepare(
+            <<<SQL
+            SELECT *
+            FROM actor
+            WHERE id = ?;
+        SQL
+        );
+        $request->bindValue(1, $id);
+        $request->setFetchMode(PDO::FETCH_CLASS, Actor::class);
+        $request->execute();
+        if ($res = $request->fetch()) {
+            return $res;
+        } else {
+            throw new EntityNotFoundException();
+        }
+    }
 }
