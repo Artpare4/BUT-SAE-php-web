@@ -31,5 +31,5 @@ $pageWeb->appendContent(<<<HTML
     <div><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
 HTML);
 
-
+$pageWeb->appendCssUrl("/css/style.css");
 echo $pageWeb->toHTML();
