@@ -1,6 +1,11 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Entity;
+
+use Database\MyPdo;
+use PDO;
 
 class Image
 {
@@ -41,5 +46,22 @@ class Image
     {
         $this->jpeg = $jpeg;
         return $this;
+    }
+
+    /**
+     * Méthode de la classe Image . Cette méthode retourne une entié image ayant l'id passé en paramètre
+     * @param int $id Id de l'image que l'on choisi
+     * @return Image Entité image
+     */
+    public function getById(int $id): Image
+    {
+        $request=MyPdo::getInstance()->prepare(<<<SQL
+    SELECT id,jpeg
+    FROM image
+    WHERE id=:idImage;
+SQL);
+        $request->execute([':idImage'=>$id]);
+        $request->setFetchMode(PDO::FETCH_CLASS, Image::class);
+        return $request->fetch();
     }
 }
