@@ -33,7 +33,7 @@ SQL);
     {
         $res=[];
         $request=MyPdo::getInstance()->prepare(<<<SQL
-        SELECT *
+        SELECT m.id,m.posterId,m.originalLanguage,m.originalTitle,m.overwiew,m.releaseDate,m.runtime,m.tagline,m.title
         FROM movie m,
              movie_genre mg
         WHERE m.id=mg.movieId
@@ -43,5 +43,6 @@ SQL);
         $res=$request->fetchAll(PDO::FETCH_CLASS, Movie::class);
         return $res;
     }
-}
 
+
+}
