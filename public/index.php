@@ -28,7 +28,7 @@ HTML);
 
 
 $pageWeb->appendContent(<<<HTML
-    <div>{$pageWeb->getLastModification()}</div>
+    <div><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
 HTML);
 
 
