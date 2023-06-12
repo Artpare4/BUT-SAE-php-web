@@ -10,7 +10,7 @@ class Actor
 {
     private int $id;
     private int $avatarId;
-    private string $birthday;
+    private ?string $birthday;
     private ?string $deathday;
     private string $name;
     private string $biography;
@@ -141,7 +141,7 @@ class Actor
         $request = MyPdo::getInstance()->prepare(
             <<<SQL
             SELECT *
-            FROM actor
+            FROM people
             WHERE id = ?;
         SQL
         );
