@@ -23,7 +23,7 @@ foreach ($Collection as $film) {
     <div class="movie"><img src=""><p>{$film->getTitle()}</p></div>
 HTML);
 }
-
+$pageWeb->appendContent("</div>");
 
 
 
