@@ -13,4 +13,10 @@ header {
     margin: 12px;
 }
 
+main {
+    display: flex;
+    overflow: auto;
+    height: 80vh;
+    flex-direction: column;
+}
 
