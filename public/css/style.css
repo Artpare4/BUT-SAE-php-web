@@ -1,0 +1,19 @@
+html{
+    width:100%;
+}
+body{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.movie{
+    display: flex;
+    flex-direction: column;
+}
