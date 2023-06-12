@@ -14,9 +14,43 @@ header {
 }
 
 main {
+    margin: 25px;
     display: flex;
     overflow: auto;
-    height: 80vh;
+    height: 85vh;
     flex-direction: column;
 }
 
+.movie {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.infoContent {
+    display: flex;
+    margin : 10px;
+    flex-direction: column;
+}
+
+.titleDate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.title,.date {width: auto}
+
+
+.info {
+    display: flex;
+    margin: 10px;
+
+}
+
+content {
+    display: flex;
+    flex-direction: column;
+}
