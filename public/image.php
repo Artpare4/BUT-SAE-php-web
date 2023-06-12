@@ -14,7 +14,8 @@ try {
     header('Content-Type: image/jpeg');
     echo $res->getJpeg();
 } catch (EntityNotFoundException) {
-    http_response_code(404);
+    header('HTTP 1.1 200 OK');
+    header('Location: http://cutrona/but/s2/sae2-01/ressources/public/img/movie.png');
 } catch(ParameterException) {
     http_response_code(400);
 }
