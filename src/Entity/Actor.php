@@ -9,7 +9,7 @@ use PDO;
 class Actor
 {
     private int $id;
-    private int $avatarId;
+    private ?int $avatarId;
     private ?string $birthday;
     private ?string $deathday;
     private string $name;
