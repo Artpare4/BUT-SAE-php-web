@@ -13,7 +13,13 @@ try {
     } else {
         $actorId = intval($_GET['actorId']);
     }
+    $myActor = Actor::findById($actorId);
+    $html = new WebPage();
+    $html->setTitle($myActor->getName());
+    $html->appendContent("<header><h1>Acteur - {$myActor->getName()}</h1></header>\n");
+    $html->appendContent("<main><content class='actor'><div class='imgContent'><img src='imageActor.php?imageId=".$myActor->getAvatarId()."' alt='Image Acteur'></div>");
 
+    echo $html->toHTML();
 } catch (ParameterException) {
     http_response_code(400);
 } catch (EntityNotFoundException) {
