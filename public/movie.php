@@ -19,23 +19,23 @@ try {
     $myMovie = Movie::findById($movieId);
     $html = new WebPage();
     $html->appendCssUrl("css/content.css");
-    $html->setTitle($myMovie->getTitle());
-    $html->appendContent("<header><h1>Film - {$myMovie->getTitle()}</h1></header>\n");
+    $html->setTitle($html->escapeString($myMovie->getTitle()));
+    $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
-    $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='title'>{$myMovie->getTitle()}</div>");
-    $html->appendContent("<div class='date'>{$myMovie->getReleaseDate()}</div></div>");
+    $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='title'>{$html->escapeString($myMovie->getTitle())}</div>");
+    $html->appendContent("<div class='date'>{$html->escapeString($myMovie->getReleaseDate())}</div></div>");
 
-    $html->appendContent("<div class='info'>{$myMovie->getOriginalTitle()}</div>");
-    $html->appendContent("<div class='info'>{$myMovie->getTagline()}</div>");
-    $html->appendContent("<div class='info'>{$myMovie->getOverview()}</div></div></content>");
+    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getOriginalTitle())}</div>");
+    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getTagline())}</div>");
+    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
 
     $casts = CastCollection::findByMovieId($movieId);
     foreach ($casts as $cast) {
         $actor = Actor::findById($cast->getActorId());
         $html->appendContent("<content class='secondary'><a class='secondary' href='/actor.php?actorId={$actor->getId()}'><div class='imgContent'><img src='/imageActor.php?imageId={$actor->getAvatarId()}' alt='Image Actor'></div>");
-        $html->appendContent("<div class='infoContent'><div class='secondaryInfo'>{$cast->getRole()}</div>");
-        $html->appendContent("<div class='secondaryInfo'>{$actor->getName()}</div></div></a></content>");
+        $html->appendContent("<div class='infoContent'><div class='secondaryInfo'>{$html->escapeString($cast->getRole())}</div>");
+        $html->appendContent("<div class='secondaryInfo'>{$html->escapeString($actor->getName())}</div></div></a></content>");
     }
 
     $html->appendContent("</main>");
