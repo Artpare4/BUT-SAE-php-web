@@ -18,7 +18,7 @@ class MovieForm
         return $this->movie;
     }
 
-    public function __construct(?Movie $movie=null):
+    public function __construct(?Movie $movie=null)
     {
         $this->movie = $movie;
     }
