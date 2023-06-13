@@ -41,7 +41,7 @@ HTML);
 
 
 $filmCollection=new MovieCollection();
-$pageWeb->appendContent("<main>");
+$pageWeb->appendContent("<main class='listfilm'>");
 try {
     if (isset($_GET['genre'])) {
         if (ctype_digit($_GET['genre'])) {

@@ -142,3 +142,22 @@ footer {
         font-size: 30px;
     }
 }
+
+.movie{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    display: flex;
+    flex-direction: column;
+}
+.listfilm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.title{
+    text-align: center;
+    width: 240px;
+}
