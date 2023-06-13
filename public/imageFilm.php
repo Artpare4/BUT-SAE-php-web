@@ -15,6 +15,4 @@ try {
     echo $res->getJpeg();
 } catch (EntityNotFoundException) {
     header('Location: /image/default_picture.png');
-} catch(ParameterException) {
-    http_response_code(400);
 }
