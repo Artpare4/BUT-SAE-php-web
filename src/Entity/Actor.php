@@ -41,9 +41,9 @@ class Actor
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getBirthday(): string
+    public function getBirthday(): ?string
     {
         return $this->birthday;
     }
