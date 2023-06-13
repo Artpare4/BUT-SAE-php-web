@@ -12,7 +12,7 @@ $pageWeb=new WebPage();
 $pageWeb->setTitle("Films");
 
 $pageWeb->appendContent(<<<HTML
-    <div class='header'><h1>Films</h1></div>
+    <header><h1>Films</h1></header>
 HTML);
 $pageWeb->appendContent(<<<HTML
     <div class="filtrage">
