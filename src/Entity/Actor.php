@@ -2,11 +2,15 @@
 declare(strict_types=1);
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+use PDO;
+
 class Actor
 {
     private int $id;
-    private int $avatarId;
-    private string $birthday;
+    private ?int $avatarId;
+    private ?string $birthday;
     private ?string $deathday;
     private string $name;
     private string $biography;
@@ -124,5 +128,30 @@ class Actor
         $this->placeOfBirth = $placeOfBirth;
     }
 
-
+    /**
+     * Méthode de classe de Actor
+     * Renvoie un Actor possédant les attributs de celui recherché dans la base de données
+     * en fonction de son ID.
+     *
+     * @param int $id
+     * @return Actor
+     */
+    public static function findById(int $id): Actor
+    {
+        $request = MyPdo::getInstance()->prepare(
+            <<<SQL
+            SELECT *
+            FROM people
+            WHERE id = ?;
+        SQL
+        );
+        $request->bindValue(1, $id);
+        $request->setFetchMode(PDO::FETCH_CLASS, Actor::class);
+        $request->execute();
+        if ($res = $request->fetch()) {
+            return $res;
+        } else {
+            throw new EntityNotFoundException();
+        }
+    }
 }
