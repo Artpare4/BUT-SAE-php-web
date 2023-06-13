@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Entity\Collection\MovieCollection;
 use Entity\Collection\TypeCollection;
 use Html\WebPage;
+use Entity\Exception\EntityNotFoundException;
 
 $pageWeb=new WebPage();
 
@@ -40,17 +41,19 @@ HTML);
 
 $filmCollection=new MovieCollection();
 $pageWeb->appendContent("<div class='main'>");
-if (isset($_GET['genre'])) {
-    if(ctype_digit($_GET['genre'])) {
-        $Collection=$filmCollection->getByType(intval($_GET['genre'])) ;
+try {
+    if (isset($_GET['genre'])) {
+        if (ctype_digit($_GET['genre'])) {
+            $Collection = $filmCollection->getByType(intval($_GET['genre']));
+        } else {
+            $Collection = $filmCollection->getAllMovie();
+        }
     } else {
-        $Collection=$filmCollection->getAllMovie();
+        $Collection = $filmCollection->getAllMovie();
     }
-} else {
-    $Collection=$filmCollection->getAllMovie();
+} catch (EntityNotFoundException) {
+    $Collection = $filmCollection->getAllMovie();
 }
-
-
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
