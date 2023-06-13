@@ -119,6 +119,10 @@ footer {
     .mainImg {
         width: 150px;
     }
+    .info {
+        font-size: 20px;
+    }
+
 }
 
 @media screen and (min-width:1280px){
@@ -133,5 +137,8 @@ footer {
     }
     .mainImg {
         width: 225px;
+    }
+    .info {
+        font-size: 30px;
     }
 }
