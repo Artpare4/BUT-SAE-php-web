@@ -209,6 +209,12 @@ class Movie
         }
     }
 
+    /**
+     * Méthode d'instance de la classe Movie
+     * Permet la suppression de l'objet dans le base. Affecte ensuite le valeur null à son ID.
+     *
+     * @return $this
+     */
     public function delete(): Movie
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
@@ -222,6 +228,12 @@ class Movie
 
     }
 
+    /**
+     * Méthode d'instance de la classe Movie
+     * Permet la mise à jour de l'objet dans le base en fonction de ces attributs.
+     *
+     * @return $this
+     */
     public function update(): Movie
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
@@ -232,7 +244,7 @@ class Movie
                 overview = :overview,
                 releaseDate = TO_DATE(:releaseDate,'YYYY-MM-DD'),
                 runtime = :runtime,
-                tagline = :tagline,
+                tagline = :tagline
             WHERE id = :id;
         SQL);
         $request->bindValue('title', $this->title);
@@ -245,6 +257,14 @@ class Movie
         $request->execute();
         return $this;
     }
+
+    /**
+     * Méthode d'instance de la classe Movie.
+     * Permet l'insertion dans la base de l'objet en fonction de ces attributs. Le poster ID est défini sur null
+     * et l'id de l'objet sera modifié par celle présente dans la base.
+     *
+     * @return $this
+     */
     public function insert(): Movie
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
@@ -271,6 +291,13 @@ class Movie
         return $this;
     }
 
+    /**
+     * Méthode d'instance de la classe Movie
+     * Permet la sauvegarde d'un élément dans la base. Si son ID est null, alors l'élément sera inséré.
+     * Si son ID est différente de null, alors l'élément sera mis à jour en conséquence.
+     *
+     * @return $this
+     */
     public function save(): Movie
     {
         if ($this->id==null) {
@@ -281,6 +308,20 @@ class Movie
         return $this;
     }
 
+    /**
+     * Méthode de classe de la classe Movie
+     * Permet la création d'un objet Movie à l'aide des attributs renseignés.
+     *
+     * @param string $title
+     * @param string $originalLang
+     * @param string $originalTitle
+     * @param string $overview
+     * @param string $releaseDate
+     * @param string $tagline
+     * @param int|null $id
+     * @param int|null $runtime
+     * @return Movie
+     */
     public static function create(
         string $title,
         string $originalLang,
