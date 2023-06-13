@@ -27,7 +27,7 @@ $pageWeb->appendContent(<<<HTML
 HTML);
 foreach ($allgenres as $genre) {
     $pageWeb->appendContent(<<<HTML
-    <option value="{$genre->getId()}">{$genre->getName()}</option>
+    <option value="{$genre->getId()}">{$pageWeb->escapeString($genre->getName())}</option>
 HTML);
 }
 
@@ -58,7 +58,7 @@ try {
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
-    <div class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><div class="title">{$film->getTitle()}</div></a></div>
+    <div class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><div class="title">{$pageWeb->escapeString($film->getTitle())}</div></a></div>
 HTML);
 }
 $pageWeb->appendContent("</div>");
