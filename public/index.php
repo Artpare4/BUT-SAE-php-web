@@ -37,9 +37,20 @@ HTML);
 $pageWeb->appendContent(<<<HTML
     </form>
 HTML);
+
 $filmCollection=new MovieCollection();
-$Collection=$filmCollection->getAllMovie();
 $pageWeb->appendContent("<div class='main'>");
+if (isset($_GET['value'])) {
+    if(ctype_digit($_GET['value'])) {
+        $Collection=$filmCollection->getByType($_GET['value']) ;
+    } else {
+        $Collection=$filmCollection->getAllMovie();
+    }
+} else {
+    $Collection=$filmCollection->getAllMovie();
+}
+
+
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
