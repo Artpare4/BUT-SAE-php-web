@@ -12,8 +12,14 @@ $pageWeb->setTitle("Films");
 $pageWeb->appendContent(<<<HTML
     <div class='header'><h1>Films</h1></div>
 HTML);
+$pageWeb->appendContent(<<<HTML
+    <div class="filtrage">
+HTML);
 
 
+$pageWeb->appendContent(<<<HTML
+    </div>
+HTML);
 $filmCollection=new MovieCollection();
 $Collection=$filmCollection->getAllMovie();
 $pageWeb->appendContent("<div class='main'>");
