@@ -18,10 +18,10 @@ if (!isset($_GET['movieId']) or !ctype_digit($_GET['movieId'])) {
 try {
     $myMovie = Movie::findById($movieId);
     $html = new WebPage();
-    $html->appendCssUrl("css/movie.css");
+    $html->appendCssUrl("css/content.css");
     $html->setTitle($myMovie->getTitle());
-    $html->appendContent("<header><h1>{$myMovie->getTitle()}</h1></header>\n");
-    $html->appendContent("<main><content class='movie'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
+    $html->appendContent("<header><h1>Film - {$myMovie->getTitle()}</h1></header>\n");
+    $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
     $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='title'>{$myMovie->getTitle()}</div>");
     $html->appendContent("<div class='date'>{$myMovie->getReleaseDate()}</div></div>");
@@ -33,9 +33,9 @@ try {
     $casts = CastCollection::findByMovieId($movieId);
     foreach ($casts as $cast) {
         $actor = Actor::findById($cast->getActorId());
-        $html->appendContent("<content class='actor'><a href='/actor.php?actorId={$actor->getId()}'><div class='imgContent'><img src='/imageActor.php?imageId={$actor->getAvatarId()}' alt=''></div>");
-        $html->appendContent("<div class='infoContent'><div class='actorInfo'>{$cast->getRole()}</div>");
-        $html->appendContent("<div class='actorInfo'>{$actor->getName()}</div></div></a></content>");
+        $html->appendContent("<content class='secondary'><a class='secondary' href='/actor.php?actorId={$actor->getId()}'><div class='imgContent'><img src='/imageActor.php?imageId={$actor->getAvatarId()}' alt='Image Actor'></div>");
+        $html->appendContent("<div class='infoContent'><div class='secondaryInfo'>{$cast->getRole()}</div>");
+        $html->appendContent("<div class='secondaryInfo'>{$actor->getName()}</div></div></a></content>");
     }
 
     $html->appendContent("</main>");
