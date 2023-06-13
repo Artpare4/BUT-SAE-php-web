@@ -232,7 +232,7 @@ class Movie
                 overview = :overview,
                 releaseDate = TO_DATE(:releaseDate,'YYYY-MM-DD'),
                 runtime = :runtime,
-                tagline = :tagline
+                tagline = :tagline,
             WHERE id = :id;
         SQL);
         $request->bindValue('title', $this->title);
@@ -279,5 +279,27 @@ class Movie
             $this->update();
         }
         return $this;
+    }
+
+    public static function create(
+        string $title,
+        string $originalLang,
+        string $originalTitle,
+        string $overview,
+        string $releaseDate,
+        string $tagline,
+        ?int $id=null,
+        ?int $runtime=null
+    ): Movie {
+        $movie = new Movie();
+        $movie->setTitle($title);
+        $movie->setOriginalLanguage($originalLang);
+        $movie->setOriginalTitle($originalTitle);
+        $movie->setOverview($overview);
+        $movie->setReleaseDate($releaseDate);
+        $movie->setTagline($tagline);
+        $movie->setId($id);
+        $movie->setRuntime($runtime);
+        return $movie;
     }
 }
