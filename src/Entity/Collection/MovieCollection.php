@@ -37,7 +37,7 @@ SQL);
         $res = [];
         $request = MyPdo::getInstance()->prepare(
             <<<SQL
-        SELECT m.id,m.posterId,m.originalLanguage,m.overview,m.releaseDate,m.runtime,m.tagline,m.title
+        SELECT m.id,m.posterId,m.originalLanguage,m.originalTitle,m.overview,m.releaseDate,m.runtime,m.tagline,m.title
         FROM movie m,
              movie_genre mg
         WHERE m.id=mg.movieId
