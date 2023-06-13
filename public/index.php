@@ -20,7 +20,7 @@ $pageWeb->appendContent("<div class='main'>");
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
-    <div class="movie"><a href="/movie.php?moveId={$film->getId()}"><img src="/image/default_picture.png"><div class="title">{$film->getTitle()}</div></a></div>
+    <div class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><div class="title">{$film->getTitle()}</div></a></div>
 HTML);
 }
 $pageWeb->appendContent("</div>");
