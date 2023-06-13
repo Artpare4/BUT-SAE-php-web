@@ -1,15 +1,18 @@
 html {
     height: 100%;
+    width: 100%;
 }
 
 body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     margin: 0;
 }
 .header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: auto;
     flex-grow: 1;
@@ -34,19 +37,22 @@ h1 {
     justify-content: space-around;
 }
 
-a{
+a {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-basis: min-content;
-    flex-shrink: 0;
 }
-p{
-    max-width: 50%;
+.title{
+    font-size: 20px;
+    text-align: center;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .movie{
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 4;
+    width: 240px;
+    margin: 5px;
 }
