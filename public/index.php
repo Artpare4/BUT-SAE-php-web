@@ -42,7 +42,7 @@ $filmCollection=new MovieCollection();
 $pageWeb->appendContent("<div class='main'>");
 if (isset($_GET['genre'])) {
     if(ctype_digit($_GET['genre'])) {
-        $Collection=$filmCollection->getByType($_GET['genre']) ;
+        $Collection=$filmCollection->getByType(intval($_GET['genre'])) ;
     } else {
         $Collection=$filmCollection->getAllMovie();
     }
