@@ -41,7 +41,7 @@ HTML);
 
 
 $filmCollection=new MovieCollection();
-$pageWeb->appendContent("<div class='main'>");
+$pageWeb->appendContent("<main>");
 try {
     if (isset($_GET['genre'])) {
         if (ctype_digit($_GET['genre'])) {
@@ -58,10 +58,10 @@ try {
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
-    <div class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><div class="title">{$pageWeb->escapeString($film->getTitle())}</div></a></div>
+    <content class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><content class="title">{$pageWeb->escapeString($film->getTitle())}</content></a></content>
 HTML);
 }
-$pageWeb->appendContent("</div>");
+$pageWeb->appendContent("</main>");
 
 
 
