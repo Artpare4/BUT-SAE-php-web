@@ -10,7 +10,7 @@ use PDO;
 
 class Movie
 {
-    private int $id;
+    private ?int $id;
     private string $originalLanguage;
     private string $originalTitle;
     private string $overview;
@@ -18,12 +18,12 @@ class Movie
     private int $runtime;
     private string $tagline;
     private string $title;
-    private int $posterId;
+    private ?int $posterId;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -165,9 +165,9 @@ class Movie
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
@@ -207,5 +207,18 @@ class Movie
         } else {
             throw new EntityNotFoundException();
         }
+    }
+
+    public function delete(): Movie
+    {
+        $request = MyPdo::getInstance()->prepare(<<<SQL
+            DELETE FROM movie
+            WHERE id = ?;
+        SQL);
+        $request->bindValue(1, $this->id);
+        $request->execute();
+        $this->id=null;
+        return $this;
+
     }
 }
