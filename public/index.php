@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Entity\Collection\MovieCollection;
+use Entity\Collection\TypeCollection;
 use Html\WebPage;
 
 $pageWeb=new WebPage();
@@ -15,9 +16,21 @@ HTML);
 $pageWeb->appendContent(<<<HTML
     <div class="filtrage">
 HTML);
-
+$genres=new TypeCollection();
+$allgenres=$genres->findAll();
+$pageWeb->appendContent(<<<HTML
+        <label class="genrelist"> 
+            <select name="listgenre">
+HTML);
+foreach ($allgenres as $genre) {
+    $pageWeb->appendContent(<<<HTML
+    <option value="{$genre->getId()}">{$genre->getName()}</option>
+HTML);
+}
 
 $pageWeb->appendContent(<<<HTML
+            </datalist>
+        </label>
     </div>
 HTML);
 $filmCollection=new MovieCollection();
