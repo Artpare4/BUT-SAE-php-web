@@ -245,4 +245,29 @@ class Movie
         $request->execute();
         return $this;
     }
+    public function insert(): Movie
+    {
+        $request = MyPdo::getInstance()->prepare(<<<SQL
+            INSERT INTO movie (originalLanguage,originalTitle,overview,releaseDate,runtime,tagline,title)
+            VALUES (:originalLanguage,:originalTitle,:overview,TO_DATE(:releaseDate,'YYYY-MM-DD'),:runtime,:tagline,:title);
+        SQL);
+        $request->bindValue('title', $this->title);
+        $request->bindValue('originalLanguage', $this->originalLanguage);
+        $request->bindValue('originalTitle', $this->originalTitle);
+        $request->bindValue('overview', $this->overview);
+        $request->bindValue('releaseDate', $this->releaseDate);
+        $request->bindValue('runtime', $this->runtime);
+        $request->bindValue('tagline', $this->tagline);
+        $request->execute();
+
+        $request = MyPdo::getInstance()->prepare(<<<SQL
+            SELECT id
+            FROM movie
+            WHERE title = ?;
+        SQL);
+        $request->bindValue(1, $this->title);
+        $request->execute();
+        $this->id= $request->fetch()['id'];
+        return $this;
+    }
 }
