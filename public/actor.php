@@ -30,9 +30,9 @@ try {
     $casts = CastCollection::findByActorId($actorId);
     foreach ($casts as $cast) {
         $movie = Movie::findById($cast->getMovieId());
-        $html->appendContent("<content class='secondary'><div class='imgContent'><img src='imageFilm.php?imageId=".$movie->getPosterId()."' alt='Image Film'></div>");
+        $html->appendContent("<content class='secondary'><a class ='secondary' href='movie.php?movieId=".$cast->getMovieId()."'><div class='imgContent'><img src='imageFilm.php?imageId=".$movie->getPosterId()."' alt='Image Film'></div>");
         $html->appendContent("<div class='infoContent'><div class='secondaryInfo'><div class='titleDate'><div class='title'>{$movie->getTitle()}</div><div class='date'>{$movie->getReleaseDate()}</div></div></div>");
-        $html->appendContent("<div class='secondaryInfo'>{$cast->getRole()}</div></div></div></content>");
+        $html->appendContent("<div class='secondaryInfo'>{$cast->getRole()}</div></div></div></a></content>");
     }
 
     $html->appendContent("</main>");

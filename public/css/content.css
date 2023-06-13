@@ -69,12 +69,14 @@ main {
     margin: 10px;
     width: 100%;
     font-size: 40px;
+    text-align: justify;
 }
 
 .secondary {
     margin: 50px 50px 20px;
     display: flex;
     flex-direction: row;
+    width: 85%;
 }
 
 .secondaryInfo {
@@ -100,9 +102,9 @@ footer {
     width: 300px;
 }
 
-@media screen and (min-width:720px) and (max-height: 720px){
+@media screen and (min-width:720px) and (max-height: 720px) {
 
-    main{
+    main {
         height: 65vh;
     }
 
@@ -110,9 +112,14 @@ footer {
         height: 60px;
     }
 
-    .infoContent{font-size: x-large}
-}
+    .infoContent {
+        font-size: x-large
+    }
 
+    .mainImg {
+        width: 150px;
+    }
+}
 
 @media screen and (min-width:1280px){
     main{
@@ -123,5 +130,8 @@ footer {
 
     header {
         height: 100px;
+    }
+    .mainImg {
+        width: 225px;
     }
 }
