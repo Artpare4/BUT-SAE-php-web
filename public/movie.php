@@ -18,7 +18,7 @@ if (!isset($_GET['movieId']) or !ctype_digit($_GET['movieId'])) {
 try {
     $myMovie = Movie::findById($movieId);
     $html = new WebPage();
-    $html->appendCssUrl("css/content.css");
+    $html->appendCssUrl("css/style.css");
     $html->setTitle($html->escapeString($myMovie->getTitle()));
     $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");

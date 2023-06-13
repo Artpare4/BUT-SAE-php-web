@@ -69,5 +69,5 @@ $pageWeb->appendContent(<<<HTML
     <footer>Last Modification:{$pageWeb->getLastModification()}</footer>
 HTML);
 
-$pageWeb->appendCssUrl("/css/content.css");
+$pageWeb->appendCssUrl("/css/style.css");
 echo $pageWeb->toHTML();

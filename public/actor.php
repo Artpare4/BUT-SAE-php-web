@@ -15,7 +15,7 @@ try {
     }
     $myActor = Actor::findById($actorId);
     $html = new WebPage();
-    $html->appendCssUrl("css/content.css");
+    $html->appendCssUrl("css/style.css");
     $html->setTitle($html->escapeString($myActor->getName()));
     $html->appendContent("<header><h1>Acteur - {$html->escapeString($myActor->getName())}</h1></header>\n");
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img class='mainImg' src='imageActor.php?imageId=".$myActor->getAvatarId()."' alt='Image Acteur'></div>");
