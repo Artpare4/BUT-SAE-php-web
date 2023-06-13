@@ -29,7 +29,7 @@ HTML);
 }
 
 $pageWeb->appendContent(<<<HTML
-            </datalist>
+            </select>
         </label>
     </div>
 HTML);
