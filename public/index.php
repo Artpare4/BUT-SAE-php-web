@@ -19,8 +19,9 @@ HTML);
 $genres=new TypeCollection();
 $allgenres=$genres->findAll();
 $pageWeb->appendContent(<<<HTML
+    <form method="GET" name="choixgenre" action="/index.php">
         <label class="genrelist"> 
-            <select name="listgenre">
+            <select name="genre">
 HTML);
 foreach ($allgenres as $genre) {
     $pageWeb->appendContent(<<<HTML
@@ -32,6 +33,9 @@ $pageWeb->appendContent(<<<HTML
             </select>
         </label>
     </div>
+HTML);
+$pageWeb->appendContent(<<<HTML
+    </form>
 HTML);
 $filmCollection=new MovieCollection();
 $Collection=$filmCollection->getAllMovie();
