@@ -22,8 +22,10 @@ try {
 
     $html->appendContent("<div class='infoContent'><div class='info'>{$html->escapeString($myActor->getName())}</div>");
     $html->appendContent("<div class='info'>{$html->escapeString($myActor->getPlaceOfBirth())}</div>");
-    $birthDate = ($html->escapeString($myActor->getBirthday())) ?: "Naissance inconnue";
+    $birthDate = ($myActor->getBirthday()) ?: "Naissance inconnue";
+    $birthDate = $html->escapeString($birthDate);
     $deathDate = ($myActor->getDeathday()) ?: "Mort inconnue / En vie";
+    $deathDate = ($html->escapeString($deathDate));
     $html->appendContent("<div class='info'><div class='dates'>$birthDate</div> - <div class='dates'>{$html->escapeString($deathDate)}</div></div>");
     $html->appendContent("<div class='info'>{$html->escapeString($myActor->getBiography())}</div></div></content>");
 
