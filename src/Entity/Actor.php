@@ -33,9 +33,9 @@ class Actor
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getAvatarId(): int
+    public function getAvatarId(): ?int
     {
         return $this->avatarId;
     }
