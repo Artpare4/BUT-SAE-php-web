@@ -254,6 +254,7 @@ class Movie
         $request->bindValue('releaseDate', $this->releaseDate);
         $request->bindValue('runtime', $this->runtime);
         $request->bindValue('tagline', $this->tagline);
+        $request->bindValue('id', $this->id);
         $request->execute();
         return $this;
     }
