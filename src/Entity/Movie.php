@@ -270,4 +270,14 @@ class Movie
         $this->id= $request->fetch()['id'];
         return $this;
     }
+
+    public function save(): Movie
+    {
+        if ($this->id==null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+        return $this;
+    }
 }
