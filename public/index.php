@@ -23,6 +23,7 @@ $pageWeb->appendContent(<<<HTML
     <form method="get" name="choixgenre" action="/index.php">
         <label class="genrelist"> 
             <select name="genre">
+             <option value="">Tous les films</option>
 HTML);
 foreach ($allgenres as $genre) {
     $pageWeb->appendContent(<<<HTML
