@@ -19,7 +19,7 @@ HTML);
 $genres=new TypeCollection();
 $allgenres=$genres->findAll();
 $pageWeb->appendContent(<<<HTML
-    <form method="GET" name="choixgenre" action="/index.php">
+    <form method="get" name="choixgenre" action="/index.php">
         <label class="genrelist"> 
             <select name="genre">
 HTML);
@@ -30,19 +30,19 @@ HTML);
 }
 
 $pageWeb->appendContent(<<<HTML
-            </select>
-        </label>
+                </select>
+            </label>
+            <button type="submit">Envoyer</button>
+        </form>
     </div>
 HTML);
-$pageWeb->appendContent(<<<HTML
-    </form>
-HTML);
+
 
 $filmCollection=new MovieCollection();
 $pageWeb->appendContent("<div class='main'>");
-if (isset($_GET['value'])) {
-    if(ctype_digit($_GET['value'])) {
-        $Collection=$filmCollection->getByType($_GET['value']) ;
+if (isset($_GET['genre'])) {
+    if(ctype_digit($_GET['genre'])) {
+        $Collection=$filmCollection->getByType($_GET['genre']) ;
     } else {
         $Collection=$filmCollection->getAllMovie();
     }
