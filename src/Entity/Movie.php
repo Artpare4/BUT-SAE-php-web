@@ -15,7 +15,7 @@ class Movie
     private string $originalTitle;
     private string $overview;
     private string $releaseDate;
-    private int $runtime;
+    private ?int $runtime;
     private string $tagline;
     private string $title;
     private ?int $posterId;
@@ -111,9 +111,9 @@ class Movie
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRuntime(): int
+    public function getRuntime(): ?int
     {
         return $this->runtime;
     }
@@ -220,5 +220,29 @@ class Movie
         $this->id=null;
         return $this;
 
+    }
+
+    public function update(): Movie
+    {
+        $request = MyPdo::getInstance()->prepare(<<<SQL
+            UPDATE movie
+            SET title = :title,
+                originalLanguage = :originalLanguage,
+                originalTitle = :originalTitle,
+                overview = :overview,
+                releaseDate = TO_DATE(:releaseDate,'YYYY-MM-DD'),
+                runtime = :runtime,
+                tagline = :tagline
+            WHERE id = :id;
+        SQL);
+        $request->bindValue('title', $this->title);
+        $request->bindValue('originalLanguage', $this->originalLanguage);
+        $request->bindValue('originalTitle', $this->originalTitle);
+        $request->bindValue('overview', $this->overview);
+        $request->bindValue('releaseDate', $this->releaseDate);
+        $request->bindValue('runtime', $this->runtime);
+        $request->bindValue('tagline', $this->tagline);
+        $request->execute();
+        return $this;
     }
 }
