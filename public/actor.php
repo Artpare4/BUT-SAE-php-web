@@ -19,6 +19,13 @@ try {
     $html->appendContent("<header><h1>Acteur - {$myActor->getName()}</h1></header>\n");
     $html->appendContent("<main><content class='actor'><div class='imgContent'><img src='imageActor.php?imageId=".$myActor->getAvatarId()."' alt='Image Acteur'></div>");
 
+    $html->appendContent("<div class='infoContent'><div class='info'>{$myActor->getName()}</div>");
+    $html->appendContent("<div class='info'>{$myActor->getPlaceOfBirth()}</div>");
+    $birthDate = ($myActor->getBirthday()) ?: "Naissance inconnue";
+    $deathDate = ($myActor->getDeathday()) ?: "Mort inconnue / En vie";
+    $html->appendContent("<div class='info'><div class='dates'>$birthDate</div> - <div class='dates'>$deathDate</div></div>");
+    $html->appendContent("<div class='info'>{$myActor->getBiography()}</div></content>");
+
     echo $html->toHTML();
 } catch (ParameterException) {
     http_response_code(400);
