@@ -66,7 +66,7 @@ $pageWeb->appendContent("</div>");
 
 
 $pageWeb->appendContent(<<<HTML
-    <div class="footer"><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
+    <footer>Last Modification:{$pageWeb->getLastModification()}</footer>
 HTML);
 
 $pageWeb->appendCssUrl("/css/style.css");
