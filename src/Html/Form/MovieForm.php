@@ -91,7 +91,7 @@ class MovieForm
             </label>
             <label>
                 Date de Sortie du film :
-                <input name="releaseDate" type="date" value="$releaseD" required>
+                <input name="releaseDate" type="date" value="$releaseD">
             </label>
             <label>
                 Durée du film en minute :
@@ -102,6 +102,13 @@ class MovieForm
 HTML;
     }
 
+    /**
+     * Méthode d'instance de MovieForm
+     * Permet d'associer à l'attribut movie de l'instance un movie issue des requetes POST reçues.
+     *
+     * @return void
+     * @throws ParameterException
+     */
     public function setEntityFromQueryString(): void
     {
         if (!(isset($_POST['id'])) || $_POST['id'] === '' || !(ctype_digit($_POST['id']))) {
