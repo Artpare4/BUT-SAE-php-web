@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 98%;
+    padding:15px;
+    margin: 0;
 }
 header {
     display: flex;
@@ -15,17 +17,16 @@ header {
     border-style: solid;
     align-items: center;
     border-color: grey;
-    margin: 12px;
+    margin: 0;
 }
 
 h1 {
     width: auto;
-    align-self: center;
 }
 
 main {
     height: 90vh;
-    margin: 15px;
+    margin: 0;
     display: flex;
     overflow: auto;
     flex-direction: column;
@@ -44,7 +45,7 @@ main {
     margin : 10px;
     flex-direction: column;
     align-self: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
 }
@@ -57,19 +58,27 @@ main {
     width: 100%;
 }
 
-.title {width: auto}
-.date {
-    flex-shrink: 1;
-    width: auto;
+.title {width: auto
 }
-
-
+.date {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+.titleMovieDesc{
+    flex-grow: 1;
+}
+.infoOriginalTitle{
+    display: flex;
+    flex-direction: row-reverse;
+}
 .info {
     display: flex;
     margin: 10px;
     width: 100%;
-    font-size: 40px;
     text-align: justify;
+    font-size: 30px;
 }
 
 .secondary {
@@ -93,13 +102,16 @@ footer {
     border-style: solid;
     border-color: grey;
     height: 40px;
-    margin: 5px;
+    margin-top: 10px;
     font-size: 35px;
 
 }
-
+.imgContent{
+    display: flex;
+}
 .mainImg {
-    width: 300px;
+    width: 200px;
+    height: 240px;
 }
 
 @media screen and (min-width:720px) and (max-height: 720px) {
@@ -124,7 +136,12 @@ footer {
     }
 
 }
-
+.nomacteur,.lieuNaissance{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (min-width:1280px){
     main{
         align-self: center;
@@ -138,15 +155,8 @@ footer {
     .mainImg {
         width: 225px;
     }
-    .info {
-        font-size: 30px;
-    }
 }
 
-.movie{
-    display: flex;
-    flex-direction: column;
-}
 a{
     display: flex;
     flex-direction: column;
@@ -156,8 +166,31 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    border-style: solid;
+    border-width: 5px;
 }
 .title{
     text-align: center;
     width: 240px;
+    margin:10px 0px 40px;
+    border-style: solid;
+    border-color: black;
 }
+.filtrage{
+    margin: 5px;
+}
+.movie{
+    margin:0px 4px 0px 4px;
+}
+
+.infodates{
+    justify-content: space-evenly;
+}
+@media (min-height: 500px) {
+    body{
+        padding: 0;
+        justify-content: space-between;
+    }
+}
+
+

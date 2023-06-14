@@ -36,12 +36,12 @@ try {
 HTML);
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
-    $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='title'>{$html->escapeString($myMovie->getTitle())}</div>");
+    $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='titleMovieDesc'>{$html->escapeString($myMovie->getTitle())}</div>");
     $html->appendContent("<div class='date'>{$html->escapeString($myMovie->getReleaseDate())}</div></div>");
 
-    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getOriginalTitle())}</div>");
-    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getTagline())}</div>");
-    $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
+    $html->appendContent("<div class='infoOriginalTitle info'>{$html->escapeString($myMovie->getOriginalTitle())}</div>");
+    $html->appendContent("<div class='infoTagLine info'>{$html->escapeString($myMovie->getTagline())}</div>");
+    $html->appendContent("<div class='infoDesc info'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
 
     $casts = CastCollection::findByMovieId($movieId);
     if ($casts!==null) {
