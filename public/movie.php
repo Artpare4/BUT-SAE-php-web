@@ -29,10 +29,10 @@ try {
     </header>
     HTML);
     $html->appendContent(<<<HTML
-    <content class="button">
+    <menu>
         <button class="delete" type="button"><a href="/admin/movie-delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button>
         <button class="edit" type="button"><a href="/admin/movie-form.php?movieId={$_GET['movieId']}">Modifier le film</a></button>
-    </content>
+    </menu>
 HTML);
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
