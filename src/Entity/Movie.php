@@ -29,7 +29,7 @@ class Movie
     }
 
     /**
-     * @param ?int $id
+     * @param int|null $id
      * @return Movie
      */
     public function setId(?int $id): Movie
@@ -242,7 +242,7 @@ class Movie
                 originalLanguage = :originalLanguage,
                 originalTitle = :originalTitle,
                 overview = :overview,
-                releaseDate = TO_DATE(:releaseDate,'YYYY-MM-DD'),
+                releaseDate = STR_TO_DATE(:releaseDate,'%Y-%m-%d'),
                 runtime = :runtime,
                 tagline = :tagline
             WHERE id = :id;
@@ -270,7 +270,7 @@ class Movie
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
             INSERT INTO movie (originalLanguage,originalTitle,overview,releaseDate,runtime,tagline,title)
-            VALUES (:originalLanguage,:originalTitle,:overview,TO_DATE(:releaseDate,'YYYY-MM-DD'),:runtime,:tagline,:title);
+            VALUES (:originalLanguage,:originalTitle,:overview,STR_TO_DATE(:releaseDate,'%Y-%m-%d'),:runtime,:tagline,:title);
         SQL);
         $request->bindValue('title', $this->title);
         $request->bindValue('originalLanguage', $this->originalLanguage);
