@@ -26,7 +26,7 @@ try {
         <content class="button">
             <button class="home" type="button"><a href="/">Retour à l'accueil</a></button>
         </content>
-    </header>\n");
+    </header>
     HTML);
     $html->appendContent(<<<HTML
     <content class="button">
