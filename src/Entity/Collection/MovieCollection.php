@@ -51,22 +51,4 @@ SQL
             throw new EntityNotFoundException();
         }
     }
-
-    public function getByActor(int $idActor): array
-    {
-        $res=[];
-        $request=MyPdo::getInstance()->prepare(<<<SQL
-    SELECT  m.id,m.posterId,m.releaseDate,m.title
-    FROM movie m,
-         cast c
-    WHERE m.id=c.movieId
-    AND c.peopleId=:idActor;
-SQL);
-        $request->execute([':idActor'=>$idActor]);
-        if ($res = $request->fetchAll(PDO::FETCH_CLASS, Movie::class)) {
-            return $res;
-        } else {
-            throw new EntityNotFoundException();
-        }
-    }
 }
