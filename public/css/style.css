@@ -167,3 +167,10 @@ a{
 .filtrage{
     margin: 5px;
 }
+@media (min-height: 500px) {
+    body{
+        padding: 0;
+        justify-content: space-between;
+    }
+
+}
