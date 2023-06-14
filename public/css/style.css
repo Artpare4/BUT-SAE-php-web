@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 98%;
+    padding:15px;
+    margin: 0;
 }
 header {
     display: flex;
@@ -15,7 +17,7 @@ header {
     border-style: solid;
     align-items: center;
     border-color: grey;
-    margin: 12px;
+    margin: 0;
 }
 
 h1 {
@@ -25,7 +27,7 @@ h1 {
 
 main {
     height: 90vh;
-    margin: 15px;
+    margin: 0;
     display: flex;
     overflow: auto;
     flex-direction: column;
@@ -93,7 +95,7 @@ footer {
     border-style: solid;
     border-color: grey;
     height: 40px;
-    margin: 5px;
+    margin-top: 10px;
     font-size: 35px;
 
 }
@@ -165,4 +167,7 @@ a{
     margin:10px 0px 40px;
     border-style: solid;
     border-color: black;
+}
+.filtrage{
+    margin: 5px;
 }
