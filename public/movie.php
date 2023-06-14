@@ -22,7 +22,10 @@ try {
     $html->setTitle($html->escapeString($myMovie->getTitle()));
     $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
     $html->appendContent(<<<HTML
-    <content class="button"><button class="delete" type="button"><a href="/delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button></content>
+    <content class="button">
+        <button class="delete" type="button"><a href="/admin/delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button>
+        <button class="edit" type="button"><a href="/admin/movie.form.php?movieId={$_GET['movieId']}">Modifier le film</a></button>
+    </content>
 HTML);
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
