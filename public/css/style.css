@@ -22,7 +22,6 @@ header {
 
 h1 {
     width: auto;
-    align-self: center;
 }
 
 main {
@@ -59,10 +58,13 @@ main {
     width: 100%;
 }
 
-.title {width: auto}
+.title {width: auto
+}
 .date {
-    flex-shrink: 1;
+    display: flex;
     width: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 
