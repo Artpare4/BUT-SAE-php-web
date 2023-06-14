@@ -7,10 +7,10 @@ use Html\Form\MovieForm;
 
 try {
     $form = new MovieForm();
-    $form ->setEntityFromQueryString();
+    $form->setEntityFromQueryString();
     $movie = $form->getMovie();
     $movie->save();
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 
 } catch (ParameterException) {
