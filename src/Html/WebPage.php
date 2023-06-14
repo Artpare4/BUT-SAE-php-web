@@ -6,6 +6,7 @@ namespace Html;
 
 class WebPage
 {
+    use StringEscaper;
     private string $head;
     private string $title;
     private string $body;
@@ -163,13 +164,4 @@ HTML;
         return date('j F o', getlastmod());
     }
 
-    /**
-     * Méthode de la classe WebPage. Cette méthdoe retourne la chaîne de caractère en ayant protéger les caractères spéciaux pouvant dégrader la page Web.
-     * @param string $string
-     * @return string
-     */
-    public function escapeString(string $string): string
-    {
-        return htmlspecialchars($string, ENT_HTML5 | ENT_QUOTES);
-    }
 }
