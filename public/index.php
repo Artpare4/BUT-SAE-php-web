@@ -12,7 +12,7 @@ $pageWeb=new WebPage();
 $pageWeb->setTitle("Films");
 
 $pageWeb->appendContent(<<<HTML
-    <div class='header'><h1>Films</h1></div>
+    <header><h1>Films</h1></header>
 HTML);
 $pageWeb->appendContent(<<<HTML
     <div class="filtrage">
@@ -41,7 +41,7 @@ HTML);
 
 
 $filmCollection=new MovieCollection();
-$pageWeb->appendContent("<div class='main'>");
+$pageWeb->appendContent("<main class='listfilm'>");
 try {
     if (isset($_GET['genre'])) {
         if (ctype_digit($_GET['genre'])) {
@@ -58,15 +58,15 @@ try {
 
 foreach ($Collection as $film) {
     $pageWeb->appendContent(<<<HTML
-    <div class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><div class="title">{$pageWeb->escapeString($film->getTitle())}</div></a></div>
+    <content class="movie"><a href="/movie.php?movieId={$film->getId()}"><img src="/imageFilm.php?imageId={$film->getPosterId()}"><content class="title">{$pageWeb->escapeString($film->getTitle())}</content></a></content>
 HTML);
 }
-$pageWeb->appendContent("</div>");
+$pageWeb->appendContent("</main>");
 
 
 
 $pageWeb->appendContent(<<<HTML
-    <div class="footer"><p>Last Modification:{$pageWeb->getLastModification()}</p></div>
+    <footer>Last Modification:{$pageWeb->getLastModification()}</footer>
 HTML);
 
 $pageWeb->appendCssUrl("/css/style.css");
