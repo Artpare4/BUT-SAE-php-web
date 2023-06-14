@@ -6,6 +6,7 @@ use Entity\Exception\EntityNotFoundException;
 use Entity\Movie;
 use Exception\ParameterException;
 use Html\Form\MovieForm;
+use Html\WebPage;
 
 try {
     if (!isset($_GET['movieId'])) {
@@ -20,7 +21,10 @@ try {
             $form = new MovieForm($movie);
         }
     }
-    echo $form->getHtmlForm('movie-save.php');
+    $page = new WebPage();
+    $page->setTitle('Modification des films');
+    $page->appendContent($form->getHtmlForm('movie-save.php'));
+    echo $page->toHTML();
 } catch (ParameterException) {
     http_response_code(400);
 } catch (EntityNotFoundException) {
