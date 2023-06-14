@@ -140,9 +140,6 @@ footer {
     .mainImg {
         width: 225px;
     }
-    .info {
-        font-size: small;
-    }
 }
 
 a{
@@ -172,8 +169,5 @@ a{
         padding: 0;
         justify-content: space-between;
     }
-    .info{
-        font-size: 30px;
-    }
-}
 
+}
