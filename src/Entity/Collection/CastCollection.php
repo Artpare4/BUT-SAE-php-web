@@ -18,7 +18,7 @@ class CastCollection
      * @param int $id
      * @return Cast[]
      */
-    public static function findByMovieId(int $id): array
+    public static function findByMovieId(int $id): ?array
     {
         $request = MyPdo::getInstance()->prepare(<<<SQL
             SELECT id, movieId, peopleId as "actorId", role, orderIndex
@@ -30,7 +30,7 @@ class CastCollection
         if ($results = $request->fetchAll(PDO::FETCH_CLASS, Cast::class)) {
             return $results;
         } else {
-            throw new EntityNotFoundException("Film non trouvé");
+            return null;
         }
     }
 

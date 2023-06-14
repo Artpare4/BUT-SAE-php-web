@@ -17,7 +17,14 @@ try {
     $html = new WebPage();
     $html->appendCssUrl("css/style.css");
     $html->setTitle($html->escapeString($myActor->getName()));
-    $html->appendContent("<header><h1>Acteur - {$html->escapeString($myActor->getName())}</h1></header>\n");
+    $html->appendContent(<<<HTML
+    <header>
+        <h1>Film - {$html->escapeString($myActor->getName())}</h1>
+        <content class="button">
+            <button class="home" type="button"><a href="/">Retour à l'accueil</a></button>
+        </content>
+    </header>
+    HTML);
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img class='mainImg' src='imageActor.php?imageId=".$myActor->getAvatarId()."' alt='Image Acteur'></div>");
 
     $html->appendContent("<div class='infoContent'><div class='info'>{$html->escapeString($myActor->getName())}</div>");
@@ -38,7 +45,7 @@ try {
     }
 
     $html->appendContent("</main>");
-    $html->appendContent("<footer>{$html->getLastModification()}</footer>");
+    $html->appendContent("<footer>Dernière modification : {$html->getLastModification()}</footer>");
     echo $html->toHTML();
 } catch (ParameterException) {
     http_response_code(400);

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-use Entity\Exception\ParameterException;
+use Exception\ParameterException;
 use Entity\Movie;
 
 if(!isset($_GET['idmovie'])||!ctype_digit($_GET['idmovie'])) {
