@@ -179,6 +179,9 @@ a{
 .filtrage{
     margin: 5px;
 }
+.movie{
+    margin:0px 4px 0px 4px;
+}
 @media (min-height: 500px) {
     body{
         padding: 0;
