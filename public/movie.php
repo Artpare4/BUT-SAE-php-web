@@ -8,14 +8,13 @@ use Entity\Movie;
 use Entity\Exception\EntityNotFoundException;
 use Exception\ParameterException;
 
-if (!isset($_GET['movieId']) or !ctype_digit($_GET['movieId'])) {
-    header("Location: index.php");
-    exit();
-} else {
-    $movieId = intval($_GET['movieId']);
-}
-
 try {
+    if (!isset($_GET['movieId']) or !ctype_digit($_GET['movieId'])) {
+        throw new ParameterException();
+    } else {
+        $movieId = intval($_GET['movieId']);
+    }
+
     $myMovie = Movie::findById($movieId);
     $html = new WebPage();
     $html->appendCssUrl("css/style.css");
