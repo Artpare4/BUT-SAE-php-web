@@ -1,6 +1,6 @@
 <?php
 
-use Entity\Exception\ParameterException;
+use Exception\ParameterException;
 use Entity\Exception\EntityNotFoundException;
 use Entity\Image;
 
@@ -13,6 +13,6 @@ try {
     header('HTTP 1.1 200 OK');
     header('Content-Type: image/jpeg');
     echo $res->getJpeg();
-} catch (EntityNotFoundException) {
+} catch (EntityNotFoundException|ParameterException) {
     header('Location: /image/default_picture.png');
 }
