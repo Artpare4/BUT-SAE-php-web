@@ -109,8 +109,10 @@ footer {
     font-size: 35px;
 
 }
-.imgContent{
+.imgContentMoviePoster{
     display: flex;
+    height: 360px;
+    width: 360px;
 }
 .mainImg {
     width: 200px;
