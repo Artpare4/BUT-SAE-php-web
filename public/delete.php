@@ -4,9 +4,11 @@ declare(strict_types=1);
 use Entity\Exception\ParameterException;
 use Entity\Movie;
 
-if(!isset($_POST['idmovie'])||!ctype_digit($_POST['idmovie'])) {
+if(!isset($_GET['idmovie'])||!ctype_digit($_GET['idmovie'])) {
     throw new ParameterException();
 }
 $moviedelete=new Movie();
-$moviedelete->setId($_POST['idmovie']);
+$moviedelete->setId(intval($_GET['idmovie']));
 $moviedelete->delete();
+header('HTTP 1.1 200 OK');
+header('Location: /index.php');

@@ -29,10 +29,10 @@ class Movie
     }
 
     /**
-     * @param int $id
+     * @param ?int $id
      * @return Movie
      */
-    public function setId(int $id): Movie
+    public function setId(?int $id): Movie
     {
         $this->id = $id;
         return $this;
