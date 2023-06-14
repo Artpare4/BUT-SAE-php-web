@@ -18,10 +18,12 @@ header {
     align-items: center;
     border-color: grey;
     margin: 0;
+    flex-direction: column;
 }
 
 h1 {
     width: auto;
+    margin: 0;
 }
 
 main {
