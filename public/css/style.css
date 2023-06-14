@@ -18,10 +18,12 @@ header {
     align-items: center;
     border-color: grey;
     margin: 0;
+    flex-direction: column;
 }
 
 h1 {
     width: auto;
+    margin: 0;
 }
 
 main {
@@ -193,4 +195,16 @@ a{
     }
 }
 
+menu{
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
