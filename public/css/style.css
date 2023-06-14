@@ -145,10 +145,6 @@ footer {
     }
 }
 
-.movie{
-    display: flex;
-    flex-direction: column;
-}
 a{
     display: flex;
     flex-direction: column;
