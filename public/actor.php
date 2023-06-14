@@ -45,7 +45,7 @@ try {
     }
 
     $html->appendContent("</main>");
-    $html->appendContent("<footer>{$html->getLastModification()}</footer>");
+    $html->appendContent("<footer>Dernière modification : {$html->getLastModification()}</footer>");
     echo $html->toHTML();
 } catch (ParameterException) {
     http_response_code(400);

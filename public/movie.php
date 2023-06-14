@@ -22,7 +22,7 @@ try {
     $html->setTitle($html->escapeString($myMovie->getTitle()));
     $html->appendContent(<<<HTML
     <header>
-        <h1>Film - {$html->escapeString($myMovie->getTitle())}</h1>
+        <h1>Films - {$html->escapeString($myMovie->getTitle())}</h1>
         <content class="button">
             <button class="home" type="button"><a href="/">Retour à l'accueil</a></button>
         </content>
@@ -55,7 +55,7 @@ HTML);
 
 
     $html->appendContent("</main>");
-    $html->appendContent("<footer>{$html->getLastModification()}</footer>");
+    $html->appendContent("<footer>Dernière modification : {$html->getLastModification()}</footer>");
     echo $html->toHTML();
 } catch (ParameterException) {
     http_response_code(400);
