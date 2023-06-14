@@ -3,11 +3,16 @@
 namespace Html\Form;
 
 use Entity\Movie;
+use Exception\ParameterException;
 use Html\StringEscaper;
 
 class MovieForm
 {
     use StringEscaper;
+
+    /**
+     * @var Movie|null
+     */
     private ?Movie $movie;
 
     /**
@@ -18,11 +23,22 @@ class MovieForm
         return $this->movie;
     }
 
+    /**
+     * @param Movie|null $movie
+     */
     public function __construct(?Movie $movie=null)
     {
         $this->movie = $movie;
     }
 
+    /**
+     * Méthode d'instance de MovieForm.
+     * Renvoie l'objet sous forme d'un formulaire HTML organisé.
+     * Les attributs obligatoires de ce formulaire sont le Titre et la date de sortie.
+     *
+     * @param string $action
+     * @return string
+     */
     public function getHtmlForm(string $action): string
     {
         if (isset($this->movie)) {
@@ -55,27 +71,27 @@ class MovieForm
             </label>
             <label>
                 Titre Original :
-                <input name="originalTitle" type="text" value="$originalTitle" required>
+                <input name="originalTitle" type="text" value="$originalTitle">
             </label>
             <label>
                 Langue Originale :
-                <input name="originalLanquage" type="text" value="$originalLang" required>
+                <input name="originalLanguage" type="text" value="$originalLang">
             </label>
             <label>
                 Phrase d'accroche :
-                <textarea name="tagline" required>
+                <textarea name="tagline">
                 $tagline
                 </textarea>
             </label>
             <label>
                  Résumé :
-                <textarea name="overview" required>
+                <textarea name="overview">
                 $overview
                 </textarea>
             </label>
             <label>
                 Date de Sortie du film :
-                <input name="releaseDate" type="date" value="$releaseD">
+                <input name="releaseDate" type="date" value="$releaseD" required>
             </label>
             <label>
                 Durée du film en minute :
@@ -84,6 +100,59 @@ class MovieForm
             <button type="submit">Enregistrer</button>
         </form>
 HTML;
+    }
+
+    public function setEntityFromQueryString(): void
+    {
+        if (!(isset($_POST['id'])) || $_POST['id'] === '' || !(ctype_digit($_POST['id']))) {
+            $idPost = null;
+        } else {
+            $idPost = intval($_POST['id']);
+        }
+
+        if (!(isset($_POST['title'])) || $_POST['title'] === '') {
+            throw new ParameterException();
+        } else {
+            $titlePost = $_POST['title'];
+        }
+
+        if (!(isset($_POST['originalTitle'])) || $_POST['originalTitle'] === '') {
+            $originalTitlePost = $_POST['title'];
+        } else {
+            $originalTitlePost = $_POST['originalTitle'];
+        }
+
+        if (!(isset($_POST['originalLanguage'])) || $_POST['originalLanguage'] === '') {
+            $originalLangPost = '';
+        } else {
+            $originalLangPost = $_POST['originalLanguage'];
+        }
+
+        if (!(isset($_POST['tagline'])) || $_POST['tagline'] === '') {
+            $taglinePost = '';
+        } else {
+            $taglinePost = $_POST['tagline'];
+        }
+
+        if (!(isset($_POST['overview'])) || $_POST['overview'] === '') {
+            $overviewPost = '';
+        } else {
+            $overviewPost = $_POST['overview'];
+        }
+
+        if (!(isset($_POST['releaseDate'])) || $_POST['releaseDate'] === '') {
+            $releaseDatePost = date("Y-m-d");
+        } else {
+            $releaseDatePost = $_POST['releaseDate'];
+        }
+
+        if (!(isset($_POST['runtime'])) || $_POST['runtime'] === '') {
+            $runtimePost = 0;
+        } else {
+            $runtimePost = $_POST['runtime'];
+        }
+        $movie = Movie::create($titlePost, $originalLangPost, $originalTitlePost, $overviewPost, $releaseDatePost, $taglinePost, $idPost, $runtimePost);
+        $this->movie = $movie;
     }
 
 }
