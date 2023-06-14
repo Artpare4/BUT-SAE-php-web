@@ -17,6 +17,7 @@ HTML);
 $pageWeb->appendContent(<<<HTML
     <div class="filtrage">
 HTML);
+
 $genres=new TypeCollection();
 $allgenres=$genres->findAll();
 $pageWeb->appendContent(<<<HTML
@@ -39,6 +40,11 @@ $pageWeb->appendContent(<<<HTML
     </div>
 HTML);
 
+$pageWeb->appendContent(<<<HTML
+    <content class="button">
+        <button class="add" type="button"><a href="/admin/movie.form.php">Ajouter un film</a></button>
+    </content>
+HTML);
 
 $filmCollection=new MovieCollection();
 $pageWeb->appendContent("<main class='listfilm'>");
