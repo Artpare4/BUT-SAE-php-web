@@ -66,8 +66,9 @@ main {
     justify-content: center;
     align-items: center;
 }
-
-
+.titleMovieDesc{
+    flex-grow: 1;
+}
 .info {
     display: flex;
     margin: 10px;

@@ -26,9 +26,9 @@ try {
     $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='titleMovieDesc'>{$html->escapeString($myMovie->getTitle())}</div>");
     $html->appendContent("<div class='date'>{$html->escapeString($myMovie->getReleaseDate())}</div></div>");
 
-    $html->appendContent("<div class='infoOriginalTitle'>{$html->escapeString($myMovie->getOriginalTitle())}</div>");
-    $html->appendContent("<div class='infoTagLine'>{$html->escapeString($myMovie->getTagline())}</div>");
-    $html->appendContent("<div class='infoDesc'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
+    $html->appendContent("<div class='infoOriginalTitle info'>{$html->escapeString($myMovie->getOriginalTitle())}</div>");
+    $html->appendContent("<div class='infoTagLine info'>{$html->escapeString($myMovie->getTagline())}</div>");
+    $html->appendContent("<div class='infoDesc info'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
 
     $casts = CastCollection::findByMovieId($movieId);
     foreach ($casts as $cast) {
