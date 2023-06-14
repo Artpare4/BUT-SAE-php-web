@@ -20,7 +20,14 @@ try {
     $html = new WebPage();
     $html->appendCssUrl("css/style.css");
     $html->setTitle($html->escapeString($myMovie->getTitle()));
-    $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
+    $html->appendContent(<<<HTML
+    <header>
+        <h1>Film - {$html->escapeString($myMovie->getTitle())}</h1>
+        <content class="button">
+            <button class="home" type="button"><a href="/">Retour à l'accueil</a></button>
+        </content>
+    </header>\n");
+    HTML);
     $html->appendContent(<<<HTML
     <content class="button">
         <button class="delete" type="button"><a href="/admin/movie-delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button>
