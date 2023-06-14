@@ -69,6 +69,10 @@ main {
 .titleMovieDesc{
     flex-grow: 1;
 }
+.infoOriginalTitle{
+    display: flex;
+    flex-direction: row-reverse;
+}
 .info {
     display: flex;
     margin: 10px;
