@@ -78,7 +78,7 @@ main {
     margin: 10px;
     width: 100%;
     text-align: justify;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .secondary {
@@ -184,5 +184,6 @@ a{
         padding: 0;
         justify-content: space-between;
     }
-
 }
+
+
