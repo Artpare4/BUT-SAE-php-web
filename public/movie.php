@@ -37,12 +37,15 @@ HTML);
     $html->appendContent("<div class='info'>{$html->escapeString($myMovie->getOverview())}</div></div></content>");
 
     $casts = CastCollection::findByMovieId($movieId);
-    foreach ($casts as $cast) {
-        $actor = Actor::findById($cast->getActorId());
-        $html->appendContent("<content class='secondary'><a class='secondary' href='/actor.php?actorId={$actor->getId()}'><div class='imgContent'><img src='/imageActor.php?imageId={$actor->getAvatarId()}' alt='Image Actor'></div>");
-        $html->appendContent("<div class='infoContent'><div class='secondaryInfo'>{$html->escapeString($cast->getRole())}</div>");
-        $html->appendContent("<div class='secondaryInfo'>{$html->escapeString($actor->getName())}</div></div></a></content>");
+    if ($casts!==null) {
+        foreach ($casts as $cast) {
+            $actor = Actor::findById($cast->getActorId());
+            $html->appendContent("<content class='secondary'><a class='secondary' href='/actor.php?actorId={$actor->getId()}'><div class='imgContent'><img src='/imageActor.php?imageId={$actor->getAvatarId()}' alt='Image Actor'></div>");
+            $html->appendContent("<div class='infoContent'><div class='secondaryInfo'>{$html->escapeString($cast->getRole())}</div>");
+            $html->appendContent("<div class='secondaryInfo'>{$html->escapeString($actor->getName())}</div></div></a></content>");
+        }
     }
+
 
     $html->appendContent("</main>");
     $html->appendContent("<footer>{$html->getLastModification()}</footer>");
