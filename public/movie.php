@@ -33,7 +33,7 @@ try {
         <button class="edit" type="button"><a href="/admin/movie-form.php?movieId={$_GET['movieId']}">Modifier le film</a></button>
     </menu>
 HTML);
-    $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
+    $html->appendContent("<main><content class='principal'><div class='imgContentMoviePoster'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
     $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='titleMovieDesc'>{$html->escapeString($myMovie->getTitle())}</div>");
     $html->appendContent("<div class='date'>{$html->escapeString($myMovie->getReleaseDate())}</div></div>");
