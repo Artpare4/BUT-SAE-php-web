@@ -26,7 +26,7 @@ try {
     $birthDate = $html->escapeString($birthDate);
     $deathDate = ($myActor->getDeathday()) ?: "Mort inconnue / En vie";
     $deathDate = ($html->escapeString($deathDate));
-    $html->appendContent("<div class='info'><div class='dates birth'>$birthDate</div> - <div class='dates death'>{$html->escapeString($deathDate)}</div></div>");
+    $html->appendContent("<div class='infodates info'><div class='dates birth'>$birthDate</div> - <div class='dates death'>{$html->escapeString($deathDate)}</div></div>");
     $html->appendContent("<div class='info Biographie'>{$html->escapeString($myActor->getBiography())}</div></div></content>");
 
     $casts = CastCollection::findByActorId($actorId);
