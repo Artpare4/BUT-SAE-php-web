@@ -74,8 +74,8 @@ class MovieForm
                 <input name="originalTitle" type="text" value="$originalTitle">
             </label>
             <label class="form">
-                Langue Originale :
-                <input name="originalLanguage" type="text" value="$originalLang">
+                Langue Originale : (10 caractères max)
+                <input name="originalLanguage" type="text" value="$originalLang" maxlength="10">
             </label>
             <label class="form">
                 Phrase d'accroche :
