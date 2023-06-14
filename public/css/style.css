@@ -70,8 +70,8 @@ main {
     display: flex;
     margin: 10px;
     width: 100%;
-    font-size: 40px;
     text-align: justify;
+    font-size: 20px;
 }
 
 .secondary {
@@ -141,7 +141,7 @@ footer {
         width: 225px;
     }
     .info {
-        font-size: 30px;
+        font-size: small;
     }
 }
 
@@ -172,5 +172,8 @@ a{
         padding: 0;
         justify-content: space-between;
     }
-
+    .info{
+        font-size: 30px;
+    }
 }
+
