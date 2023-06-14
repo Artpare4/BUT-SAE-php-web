@@ -21,6 +21,9 @@ try {
     $html->appendCssUrl("css/style.css");
     $html->setTitle($html->escapeString($myMovie->getTitle()));
     $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
+    $html->appendContent(<<<HTML
+    <content class="button"><button class="delete" type="submit" formaction="/delete.php" formmethod="post" name="idmovie" value="{$myMovie->getId()}"></button></content>
+HTML);
     $html->appendContent("<main><content class='principal'><div class='imgContent'><img src='/imageFilm.php?imageId={$myMovie->getPosterId()}' alt=''></div>");
 
     $html->appendContent("<div class='infoContent'><div class='titleDate'><div class='title'>{$html->escapeString($myMovie->getTitle())}</div>");
