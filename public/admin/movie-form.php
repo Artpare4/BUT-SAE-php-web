@@ -24,7 +24,7 @@ try {
         }
     }
     $page = new WebPage();
-    $page->setTitle('Modification des films');
+    $page->setTitle($info);
     $page->appendContent("<header><h1>$info</h1></header>");
 
     $page->appendCssUrl('/css/style.css');
