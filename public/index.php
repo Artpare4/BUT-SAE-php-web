@@ -15,6 +15,7 @@ $pageWeb->appendContent(<<<HTML
     <header><h1>Films</h1></header>
 HTML);
 $pageWeb->appendContent(<<<HTML
+    <menu>
     <div class="filtrage">
 HTML);
 
@@ -44,6 +45,7 @@ $pageWeb->appendContent(<<<HTML
     <content class="button">
         <button class="add" type="button"><a href="/admin/movie-form.php">Ajouter un film</a></button>
     </content>
+    </menu>
 HTML);
 
 $filmCollection=new MovieCollection();
