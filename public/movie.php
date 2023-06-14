@@ -23,7 +23,7 @@ try {
     $html->appendContent("<header><h1>Film - {$html->escapeString($myMovie->getTitle())}</h1></header>\n");
     $html->appendContent(<<<HTML
     <content class="button">
-        <button class="delete" type="button"><a href="/admin/delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button>
+        <button class="delete" type="button"><a href="/admin/movie-delete.php?idmovie={$_GET['movieId']}">Supprimer le film</a></button>
         <button class="edit" type="button"><a href="/admin/movie.form.php?movieId={$_GET['movieId']}">Modifier le film</a></button>
     </content>
 HTML);
