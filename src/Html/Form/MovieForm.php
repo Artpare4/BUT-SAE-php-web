@@ -62,42 +62,42 @@ class MovieForm
         }
         return <<<HTML
         <form action='$action' method='post'>
-            <label>
+            <label class="form">
                 <input name="id" type="hidden" value="$id">
             </label>
-            <label>
+            <label class="form">
                 Titre :
                 <input name="title" type="text" value="$title" required>
             </label>
-            <label>
+            <label class="form">
                 Titre Original :
                 <input name="originalTitle" type="text" value="$originalTitle">
             </label>
-            <label>
+            <label class="form">
                 Langue Originale :
                 <input name="originalLanguage" type="text" value="$originalLang">
             </label>
-            <label>
+            <label class="form">
                 Phrase d'accroche :
-                <textarea name="tagline">
-                $tagline
+                <textarea name="tagline" rows="5">
+$tagline
                 </textarea>
             </label>
-            <label>
+            <label class="form">
                  Résumé :
-                <textarea name="overview">
-                $overview
+                <textarea name="overview" rows="5">
+$overview
                 </textarea>
             </label>
-            <label>
+            <label class="form">
                 Date de Sortie du film :
                 <input name="releaseDate" type="date" value="$releaseD">
             </label>
-            <label>
+            <label class="form">
                 Durée du film en minute :
                 <input name="runtime" type="number" value="$runtime">
             </label>
-            <button type="submit">Enregistrer</button>
+            <div class="button"><button type="submit">Enregistrer</button></div>
         </form>
 HTML;
     }
