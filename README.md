@@ -1,7 +1,7 @@
 # SAE Qualité de dev et Dev IHM
 ## Parent Arthur-Erwan Lecomte
 Ce dépôt contients l'ensemble des fichiers réalisées au cours de la SAE de qualité de developpememnt et de DEV IHM lors de ma première année de BUT informatique (2022-2023).
-Le but de cette SAE était de créé une petite applications web de lecture et édition de films en PHP et en respectant certains principes de développent (utilisation des branches de version du projet, utilisation de composer et des namespaces...).
+Le but de cette SAE était de créé une petite applications web de lecture et édition de films en PHP et en respectant certains principes de développent (utilisation des branches de version du projet, utilisation de composer et des namespaces, création et uilisation des classes et des principes de la POO ...).
 La base de donnée nous était fournis par les professeurs.
 Ce projet à été fait en collaboration avec mon collègue Erwan Lecomte.
 ## Fonctionnalités du site web:
