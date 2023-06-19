@@ -1,9 +1,6 @@
 # SAE Qualité de dev et Dev IHM
 
 ## Parent Arthur-Erwan Lecomte
-## Logins
-pare0028:Arthur Parent
-leco0107: Erwan Lecomte
 ## Documentation
 ### Fonctionnalités
 - Lister les films selon leur genre (ex: animation,action,...)
