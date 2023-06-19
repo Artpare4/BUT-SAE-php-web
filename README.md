@@ -3,6 +3,7 @@
 Ce dépôt contients l'ensemble des fichiers réalisées au cours de la SAE de qualité de developpememnt et de DEV IHM lors de ma première année de BUT informatique (2022-2023).
 Le but de cette SAE était de créé une petite applications web de lecture et édition de films.
 La base de donnée nous était fournis par les professeurs.
+Ce projet à été fait en collaboration avec mon collègue Erwan Lecomte.
 ## Fonctionnalités du site web:
 - Lister les films selon leur genre (ex: animation,action,...)
 - Ajouter un film 
