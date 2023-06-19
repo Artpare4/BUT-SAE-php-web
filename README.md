@@ -1,8 +1,9 @@
 # SAE Qualité de dev et Dev IHM
-
 ## Parent Arthur-Erwan Lecomte
-## Documentation
-### Fonctionnalités
+Ce dépôt contients l'ensemble des fichiers réalisées au cours de la SAE de qualité de developpememnt et de DEV IHM lors de ma première année de BUT informatique (2022-2023).
+Le but de cette SAE était de créé une petite applications web de lecture et édition de films.
+La base de donnée nous était fournis par les professeurs.
+## Fonctionnalités du site web:
 - Lister les films selon leur genre (ex: animation,action,...)
 - Ajouter un film 
 - Supprimer un film
@@ -10,9 +11,11 @@
 - Consulter les acteurs d'un film
 - Consulter les informations d'un film
 - Consulter les informations d'un acteur
-- Consulter les films dont un acteur à joué 
+- Consulter les films dont un acteur à joué
+- Mise en page du site web réactif (utilisation de flex box)
+## Documentation
 ### Programmes
-#### Classes:
+#### src-Classes:
 - Entity
   - Actor: Classe qui représente une entitée acteur conforme à la base de donnée
   - Cast:  Classe qui représente une entitée cast conforme à la base de donnée (permet de faire la jonction entre l'entité movie et actor)
